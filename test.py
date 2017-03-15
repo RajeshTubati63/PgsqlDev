@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, app
 from flask_sqlalchemy import SQLAlchemy
 from distutils.log import debug
 
@@ -9,10 +9,11 @@ db = SQLAlchemy(app)
 
 
 class Property(db.Model):
+    
     __tablename__ = "Property"
     id = db.Column('id',db.Integer, primary_key = True)
     name = db.Column('name',db.Text)
-    
+     
     def __init__(self,name):
         self.name = name
     def __repr__(self):
@@ -24,4 +25,4 @@ def index():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host = '0.0.0.0', port = 5432)
+    app.run(host = '0.0.0.0', port = 8080)
