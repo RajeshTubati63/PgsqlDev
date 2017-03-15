@@ -1,7 +1,9 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from distutils.log import debug
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://unvudchhuunmvx:32b9ad464a9bc98dc04e83971e387d038ea09c73c71638d54201353a5dce45bf@ec2-54-243-38-139.compute-1.amazonaws.com:5432/d13gantqlb4dv2'
 db = SQLAlchemy(app)
 
@@ -21,4 +23,5 @@ def index():
     return '<h1> Hello pgsql</h1>'
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.debug = True
+    app.run(host = '0.0.0.0', port = 5432)
