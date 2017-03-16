@@ -1,0 +1,23 @@
+<html>
+
+<body>
+
+<h1>Property list</h1>
+
+<a href='{{url_for('addNewProperty')}}'>Add New Property</a>
+
+
+{% for i in properties %}
+
+<div>
+
+<p>{{i.id}} {{i.name}} {{i.location}}</p>  
+ 
+
+</div>
+
+{% endfor %}
+
+</body>
+
+</html>
